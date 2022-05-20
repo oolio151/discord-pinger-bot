@@ -1,7 +1,6 @@
 import discord
 from discord.ext import commands, tasks
 import time
-import keep_alive
 import os
 import sys
 client = discord.Client()
@@ -70,5 +69,4 @@ async def restart(ctx):
   else:
     await ctx.send("You are not authorized to run this command")
 
-keep_alive.keep_alive()
 bot.run(os.environ['TOKEN'])
