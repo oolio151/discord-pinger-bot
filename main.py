@@ -3,6 +3,7 @@ from discord.ext import commands, tasks
 import time
 import keep_alive
 import os
+import sys
 client = discord.Client()
 bot = commands.Bot(command_prefix="gao ")
 
@@ -60,6 +61,14 @@ async def ping(ctx,times):
         time.sleep(1)
   except:
     await ctx.send("Error")
+    
+@bot.command()
+async def restart(ctx):
+  if ctx.author.id == 549634577044340747 or ctx.author.id == 922282746225774604:
+    await ctx.send("Restarting Bot")
+    os.execv(sys.executable, ['python'] + sys.argv)
+  else:
+    await ctx.send("You are not authorized to run this command")
 
 keep_alive.keep_alive()
 bot.run(os.environ['TOKEN'])
